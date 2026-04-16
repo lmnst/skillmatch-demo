@@ -1,117 +1,205 @@
-import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'SkillMatch — AI-powered hiring that actually works',
-  description: 'Stop filtering by keywords. SkillMatch uses AI to screen candidates by what they can actually do — faster shortlists, fairer hiring, better outcomes.',
-}
+export default function Page() {
+  // 💡 提示：在这里填入你真实创建的 Tally 表单链接
+  const TALLY_FORM_URL = "https://tally.so/r/ODB71Y"
 
-export default function Home() {
   return (
-    <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "SkillMatch",
-            "description": "AI-powered skill-based candidate screening for faster, fairer hiring",
-            "applicationCategory": "BusinessApplication",
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-          })
-        }}
-      />
-
-      {/* Nav */}
-      <nav style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'1.2rem 2rem', borderBottom:'1px solid #e5e5e5' }}>
-        <span style={{ fontFamily:'Georgia, serif', fontSize:'20px' }}>SkillMatch</span>
-        <button style={{ fontSize:'13px', padding:'7px 16px', border:'1px solid #ccc', borderRadius:'20px', cursor:'pointer', background:'white' }}>
-          Book a demo
-        </button>
-      </nav>
-
-      {/* Hero */}
-      <section style={{ padding:'5rem 2rem 4rem', maxWidth:'680px', margin:'0 auto', textAlign:'center' }}>
-        <span style={{ display:'inline-block', fontSize:'12px', letterSpacing:'0.08em', textTransform:'uppercase', color:'#888', border:'1px solid #e5e5e5', padding:'4px 12px', borderRadius:'20px', marginBottom:'2rem' }}>
-          AI-powered hiring
-        </span>
-        <h1 style={{ fontFamily:'Georgia, serif', fontSize:'clamp(36px, 6vw, 56px)', lineHeight:'1.1', letterSpacing:'-1px', marginBottom:'1.25rem' }}>
-          Hire for skills,<br /><em style={{ color:'#888' }}>not keywords</em>
-        </h1>
-        <p style={{ fontSize:'17px', color:'#555', lineHeight:'1.6', marginBottom:'2.5rem', maxWidth:'480px', marginLeft:'auto', marginRight:'auto' }}>
-          Stop drowning in CVs that don't tell you what candidates can actually do. SkillMatch surfaces the right people — faster, fairer, smarter.
-        </p>
-        <div style={{ display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap' }}>
-          <button style={{ padding:'12px 28px', background:'#111', color:'white', border:'none', borderRadius:'6px', fontSize:'15px', cursor:'pointer' }}>
-            Book a demo
-          </button>
-          <button style={{ padding:'12px 28px', background:'transparent', color:'#555', border:'1px solid #ccc', borderRadius:'6px', fontSize:'15px', cursor:'pointer' }}>
-            See how it works
-          </button>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section style={{ padding:'4rem 2rem', borderTop:'1px solid #e5e5e5' }}>
-        <p style={{ fontSize:'11px', letterSpacing:'0.1em', textTransform:'uppercase', color:'#888', marginBottom:'2.5rem', textAlign:'center' }}>How it works</p>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', maxWidth:'800px', margin:'0 auto' }}>
-          {[
-            { n:'01', title:'Define the role', body:'Describe what success looks like. Our AI turns that into a skills profile — no keyword lists needed.' },
-            { n:'02', title:'AI screens candidates', body:'Every applicant is assessed against the same criteria. No bias, no CV keyword roulette.' },
-            { n:'03', title:'Interview the right people', body:'Spend your time with candidates who actually fit. Average time-to-shortlist drops by 60%.' },
-          ].map((s) => (
-            <div key={s.n} style={{ padding:'1.5rem', borderRight:'1px solid #e5e5e5' }}>
-              <div style={{ fontSize:'11px', color:'#aaa', marginBottom:'1rem' }}>{s.n}</div>
-              <h3 style={{ fontSize:'16px', fontWeight:'500', marginBottom:'0.5rem' }}>{s.title}</h3>
-              <p style={{ fontSize:'14px', color:'#666', lineHeight:'1.55' }}>{s.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* For who */}
-      <section style={{ padding:'4rem 2rem', borderTop:'1px solid #e5e5e5', maxWidth:'800px', margin:'0 auto' }}>
-        <p style={{ fontSize:'11px', letterSpacing:'0.1em', textTransform:'uppercase', color:'#888', marginBottom:'2rem' }}>Who it's for</p>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', gap:'1px', border:'1px solid #e5e5e5', borderRadius:'8px', overflow:'hidden' }}>
-          {[
-            { role:'Employers', title:'Less noise, better hires', body:'Stop paying for job boards that flood your inbox. Get a ranked shortlist of candidates who can do the job.' },
-            { role:'Recruiters', title:'Close roles faster', body:'Run more searches in parallel. AI handles screening so you focus on relationships and closing.' },
-            { role:'Candidates', title:'Compete on ability', body:"Your background doesn't define you. Skills do. Get matched to roles where you'll actually thrive." },
-          ].map((c) => (
-            <div key={c.role} style={{ padding:'1.5rem', background:'#fafafa' }}>
-              <div style={{ fontSize:'11px', letterSpacing:'0.08em', textTransform:'uppercase', color:'#888', marginBottom:'0.75rem' }}>{c.role}</div>
-              <h3 style={{ fontSize:'15px', fontWeight:'500', marginBottom:'0.5rem' }}>{c.title}</h3>
-              <p style={{ fontSize:'13px', color:'#666', lineHeight:'1.5' }}>{c.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ padding:'4rem 2rem', borderTop:'1px solid #e5e5e5', maxWidth:'600px', margin:'0 auto' }}>
-        <p style={{ fontSize:'11px', letterSpacing:'0.1em', textTransform:'uppercase', color:'#888', marginBottom:'2rem' }}>FAQ</p>
-        {[
-          { q:'What makes SkillMatch different from traditional ATS?', a:'Traditional ATS tools filter CVs by keywords. SkillMatch evaluates what candidates can actually do — not just what they\'ve written on a page.' },
-          { q:'How does the AI avoid bias?', a:'Every candidate is assessed against the same skill criteria. Demographic information is not factored into ranking. We audit our models regularly for fairness.' },
-          { q:'How long does it take to get a shortlist?', a:'Most roles produce a ranked shortlist within 24 hours of posting. High-volume roles can be processed in under 2 hours.' },
-          { q:'Is this suitable for technical roles?', a:'Yes. SkillMatch works especially well for technical and specialist roles where skill depth matters more than years of experience.' },
-        ].map((f) => (
-          <div key={f.q} style={{ padding:'1.25rem 0', borderBottom:'1px solid #e5e5e5' }}>
-            <div style={{ fontSize:'15px', fontWeight:'500', marginBottom:'0.5rem' }}>{f.q}</div>
-            <div style={{ fontSize:'14px', color:'#666', lineHeight:'1.6' }}>{f.a}</div>
+    <main className="min-h-screen bg-white text-slate-900">
+      <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div>
+            <div className="text-sm font-semibold tracking-[0.18em] text-slate-500 uppercase">TrueMatch</div>
+            <div className="text-lg font-semibold">AI hiring for real skills</div>
           </div>
-        ))}
+          <nav className="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+            <a href="#problem" className="hover:text-slate-900">The Problem</a>
+            <a href="#how" className="hover:text-slate-900">How it works</a>
+            <a href="#features" className="hover:text-slate-900">Features</a>
+            <a href="#faq" className="hover:text-slate-900">FAQ</a>
+          </nav>
+          <a
+            href={TALLY_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
+          >
+            Book a demo
+          </a>
+        </div>
+      </header>
+
+      <section className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:py-28">
+        <div>
+          <div className="mb-6 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium tracking-wide text-emerald-700">
+            Now available in Early Access
+          </div>
+          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
+            Hire for what people can do, not what their CV happens to say.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+            TrueMatch helps recruiting teams screen candidates by relevant skills instead of relying only on job titles or CV keywords. Build clearer shortlists, reduce manual triage, and focus recruiter time where it matters most.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a
+              href={TALLY_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+            >
+              Book a demo
+            </a>
+            <a
+              href="#how"
+              className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900"
+            >
+              See how it works
+            </a>
+          </div>
+          <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-slate-200 pt-6 text-sm text-slate-600">
+            <div>
+              <div className="text-2xl font-semibold text-slate-950">Faster</div>
+              <div>Shortlisting workflow</div>
+            </div>
+            <div>
+              <div className="text-2xl font-semibold text-slate-950">Clearer</div>
+              <div>Skill-based evaluation</div>
+            </div>
+            <div>
+              <div className="text-2xl font-semibold text-slate-950">Less</div>
+              <div>Keyword noise</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+          <div className="mb-4 text-sm font-medium text-slate-500">Why teams switch to TrueMatch</div>
+          <div className="space-y-4">
+            {[
+              ['Reduce false positives', 'Stop spending time on candidates who look strong on paper but are not the right match for the role.'],
+              ['Uncover overlooked talent', 'Identify candidates from non-traditional backgrounds whose skills align with the actual role requirements.'],
+              ['Save screening time', 'Structure inbound pipelines faster so recruiters can focus on the most relevant profiles.'],
+              ['Support fairer decisions', 'Use more consistent criteria in early-stage screening and reduce reliance on vague signals.'],
+            ].map(([title, body]) => (
+              <div key={title} className="rounded-2xl bg-white p-4">
+                <div className="font-medium text-slate-950">{title}</div>
+                <div className="mt-1 text-sm leading-6 text-slate-600">{body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Footer CTA */}
-      <section style={{ padding:'5rem 2rem', textAlign:'center', borderTop:'1px solid #e5e5e5' }}>
-        <h2 style={{ fontFamily:'Georgia, serif', fontSize:'32px', marginBottom:'1rem' }}>Ready to hire smarter?</h2>
-        <p style={{ color:'#666', fontSize:'15px' }}>Join teams already reducing time-to-hire by half.</p>
-        <div style={{ display:'flex', gap:'8px', justifyContent:'center', marginTop:'1.5rem', flexWrap:'wrap' }}>
-          <input type="email" placeholder="your@email.com" style={{ padding:'11px 16px', border:'1px solid #ccc', borderRadius:'6px', fontSize:'14px', width:'240px' }} />
-          <button style={{ padding:'12px 20px', background:'#111', color:'white', border:'none', borderRadius:'6px', fontSize:'14px', cursor:'pointer' }}>
-            Get early access
-          </button>
+      <section id="problem" className="border-y border-slate-200 bg-slate-50/70">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="max-w-2xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">The problem</div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              Most hiring funnels still optimize for the wrong signal.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              Traditional recruiting workflows over-index on keywords, prestigious company names, and years on paper. That creates noise for teams and unfair filtering for candidates.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              ['CV keyword filtering', 'Strong candidates get missed completely simply because their wording does not match the ATS search pattern.'],
+              ['Slow shortlist creation', 'Teams spend too much time manually triaging hundreds of applicants before real evaluation even begins.'],
+              ['Weak candidate experience', 'Applicants get ghosted or rejected without understanding how their actual skills were assessed.'],
+            ].map(([title, body]) => (
+              <div key={title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-950">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="how" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="max-w-2xl">
+          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">How it works</div>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+            A smarter workflow for modern recruiting teams.
+          </h2>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {[
+            ['01', 'Define the role requirements', 'Start with the job description and core role criteria so the screening process reflects what success actually looks like.'],
+            ['02', 'Screen candidates by skill match', 'TrueMatch evaluates candidates against the role requirements using structured signals instead of relying on keyword matching alone.'],
+            ['03', 'Review the Shortlist', 'Get a ranked list of candidates based purely on capability match, complete with actionable summaries for the hiring manager.'],
+          ].map(([step, title, body]) => (
+            <div key={step} className="rounded-3xl border border-slate-200 p-6">
+              <div className="text-sm font-semibold text-slate-400">{step}</div>
+              <h3 className="mt-4 text-xl font-semibold text-slate-950">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="features" className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="max-w-2xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Features</div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+              Built to plug right into your existing stack.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {[
+              ['Workflow-friendly setup', 'Designed to fit into existing recruiting workflows and ATS-based processes.'],
+              ['Custom skill criteria', 'Define role-specific skill expectations so screening reflects how your team actually hires.'],
+              ['Explainable recommendations', 'Every recommendation is paired with a clear rationale so recruiters can review results with context.'],
+              ['Consistent early screening', 'Support more consistent early-stage screening by focusing attention on role-relevant signals.'],
+            ].map(([title, body]) => (
+              <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="border-t border-slate-200 bg-slate-50/60">
+        <div className="mx-auto max-w-4xl px-6 py-20">
+          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">FAQ</div>
+          <div className="mt-8 space-y-4">
+            {[
+              ['Does TrueMatch replace my ATS?', 'No. TrueMatch is designed to support existing recruiting workflows rather than replace them.'],
+              ['How are candidate recommendations generated?', 'TrueMatch evaluates candidates against structured role requirements and presents summaries that help recruiters review potential fit more efficiently.'],
+              ['Can recruiters still make the final decision?', 'Yes. The product is designed to support human decision-making, not replace it.'],
+              ['Is this suitable for smaller hiring teams?', 'Yes. The workflow is intended to be lightweight enough for small and mid-sized teams that want more structure without adding heavy operational overhead.'],
+            ].map(([q, a]) => (
+              <div key={q} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-950">{q}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-12">
+          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Get Started</div>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+            Ready to improve hiring decisions?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+            See how a more structured, skill-based screening workflow can help teams shortlist candidates more clearly.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <a
+              href={TALLY_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-8 text-sm font-medium text-white transition hover:bg-slate-700"
+            >
+              Book a demo
+            </a>
+          </div>
+          <p className="mt-4 text-xs text-slate-500">Takes 2 minutes to book. See the product in action.</p>
         </div>
       </section>
     </main>
